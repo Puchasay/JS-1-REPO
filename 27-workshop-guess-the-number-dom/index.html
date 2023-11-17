@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Guess a Number Game</h1>
+    <form id="theForm" >
+        <div class="mb-3">
+            <label for="inputNum" class="form-label">Choose any number</label>
+            <input class="form-control" type="number" id="inputNum" name="number" min="1" max="10">
+        </div>
+        <button type="submit" class="btn btn-success">Check it out</button>
+        <button type="reset" class="btn btn-primary" id="newGameBtn">Play a new game</button>
+    </form>
+    <div class="attemptPart">
+        You did <span id="attemptNum"><!-- Here write for how many guess that user did --></span> attempt(s) to guess the right number!!
+    </div>
+    <div id="giveAlert">
+   
+        <!-- Here to add alert message after user guess a number -->
+    </div>
+
+    
+
+    <script src="game.js"></script>
+    
+</body>
+</html>

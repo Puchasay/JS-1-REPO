@@ -1,0 +1,12 @@
+body {
+    width: 50%;
+    margin: 50px auto;
+}
+
+#giveAlert {
+    margin-top: 20px;
+}
+
+.attemptPart {
+    margin-top: 20px;
+}

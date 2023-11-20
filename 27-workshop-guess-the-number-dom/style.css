@@ -10,3 +10,28 @@ body {
 .attemptPart {
     margin-top: 20px;
 }
+
+.btn {
+    background-color: cadetblue;
+    border-color: rgb(88, 158, 161);
+}
+
+.btn:hover {
+    background-color: rgb(31, 158, 160);
+    font-weight: bold;
+}
+
+#newGameBtn {
+    background-color: palevioletred;
+    border-color: rgb(225, 85, 132);
+}
+
+#newGameBtn:hover {
+    background-color: rgb(218, 65, 116);
+    border-color: palevioletred;
+    font-weight: bold;
+}
+
+/* button[type="submit"] {   //Bisa pake ini kl ga ada id di button
+
+} */

@@ -43,9 +43,11 @@ console.log(randomNum);
 
 const inputEl = document.querySelector("#inputNum");
 const formEl = document.querySelector("#theForm");
+//const checkButt = formEl.querySelector('button[type="submit"]');  pake ini utk jadikan referens dr button check di dlm formEl yg bsangkutan
 const alertEl = document.querySelector("#giveAlert");
 const newGameBtn = document.querySelector("#newGameBtn");
 const attemptEl = document.querySelector("#attemptNum");
+const checkBtn = document.querySelector("#checkBtn");
 
 let attempt = 0;
 
@@ -62,6 +64,14 @@ console.log(inputVal);
 let inputValNew = Number(inputVal);
 console.log(inputValNew);
 
+//Bisa taruh disini drpd di dlm if statement :
+/* attempt++;
+attempt.innerText = `${attempt}`;
+//ato bisa juga gini, kl ga pake attempt++ di awal.
+attempt.innerText = `${++attempt}`;*/
+
+
+
 //If statement for checking if the user guess right or wrong number
 if (randomNum === inputValNew) {
 
@@ -69,15 +79,19 @@ if (randomNum === inputValNew) {
 	attempt++;
 	//console.log(`Congratulation, finally you guessed the right number after ${attempt} attempt`);
 
-	//Showing how many trying that user done 
-	attemptEl.innerText += `${attempt}`;
+	//Showing how many trying that user done, harus pake = , bukam +=, karena kosong innertext, kl ada text lain br 
+	//pake +=
+	attemptEl.innerText = `${attempt}`;
 
-	alertEl.innerText += "Congratulations you guessed the right number!!";
+	alertEl.innerText = "Congratulations you guessed the right number!!";
 	alertEl.classList.add("alert");
 	alertEl.classList.add("alert-info");
 
+	//Stop user do a new guessing again after win
+	checkBtn.setAttribute("disabled", "disabled");
 
-	inputEl.value ="";
+
+	//inputEl.value ="";
 
 	//Set time out so that the alert box gone
 	setTimeout(() => {
@@ -91,9 +105,9 @@ if (randomNum === inputValNew) {
 	attemptEl.innerText = "";
 	attempt++;
 	//console.log(`Sorry, still wrong number and you have tried ${attempt} attempt`);
-	attemptEl.innerText += `${attempt}`;
+	attemptEl.innerText = `${attempt}`;
 
-	alertEl.innerText += `You guessed too high!!`;
+	alertEl.innerText = `You guessed too high!!`;
 	alertEl.classList.add("alert");
 	alertEl.classList.add("alert-warning");
 
@@ -110,9 +124,9 @@ if (randomNum === inputValNew) {
 	attemptEl.innerText = "";
 	attempt++;
 	//console.log(`Sorry, still wrong number and you have tried ${attempt} attempt`);
-	attemptEl.innerText += `${attempt}`;
+	attemptEl.innerText = `${attempt}`;
 
-	alertEl.innerText += `You guessed too low!!`;
+	alertEl.innerText = `You guessed too low!!`;
 	alertEl.classList.add("alert");
 	alertEl.classList.add("alert-warning");
 
@@ -125,6 +139,13 @@ if (randomNum === inputValNew) {
 		alertEl.classList.remove("alert-warning");
 	}, 2000) */
 }
+
+//Empty the input field everytime you have guessed a number in the input field
+//taruh stlh if statement spy berlaku utk smua if statement jg
+inputEl.value ="";
+
+//Focus on input field, so the cursor will stay inside the input field
+inputEl.focus();
 
 
 //This is for wrong guessing if statement
@@ -147,7 +168,11 @@ if (randomNum === inputValNew) {
 
 
 //Set a new random number again on the play new game button
-newGameBtn.addEventListener("click", () => {
+//newGameBtn.addEventListener("click", () => {
+formEl.addEventListener("reset", () => {
+	//Put the disabled off so user can play new game again
+	checkBtn.removeAttribute("disabled", "");
+
 	randomNum = getRandomNumber();
 	console.log(randomNum);
 
@@ -171,3 +196,5 @@ setTime();    //harus dpanggil function nya jg
 	alertEl.classList.remove("alert");
 	alertEl.classList.remove("alert-warning");
 }, 2000) */
+
+//Make a function for how many user has guessed, then call the function on some places, check on Johan codes

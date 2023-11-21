@@ -7,6 +7,9 @@ const salePrices = prices.map((price) => {
     return price / 2; 
 })
 
+//Shorter code syntax
+const salePrices2 = prices.map(price => price / 2);
+
 console.log(salePrices);
 console.log(prices);
 
@@ -27,3 +30,7 @@ const saleProducts = products.map((product) => {
 })
 console.log(products);
 console.log(saleProducts);
+
+//With map, kita jg bisa push 1 property dr an array, dan 1 properti dari smua element di array ter push di array baru
+//pake map, tetep isi array return sama. ga bisa utk pilih salahsatu element
+//map, utk mengubah di dlm array

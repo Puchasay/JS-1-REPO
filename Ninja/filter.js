@@ -6,6 +6,9 @@ const filterScores = scores.filter((score) => {   //With callback function, it m
     return score > 20;
 })
 
+//Shorter syntax
+const filterScores2 = scores.filter(score => score > 20);
+
 console.log(filterScores);
 console.log(scores);   //So filter method isnt destructive method for an array
 
